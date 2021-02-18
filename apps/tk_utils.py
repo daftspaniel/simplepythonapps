@@ -8,3 +8,6 @@ def buildRootWindow():
     root.wm_iconphoto('True', icon)
     root.title('')
     return root
+
+if __name__ == "__main__":
+    print('This is a helper file and is not intended to be run directly. Thanks!')

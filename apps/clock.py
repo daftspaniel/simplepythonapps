@@ -1,10 +1,9 @@
 # Super simple Tkinter clock. v0.1
-import tkinter as tk
-from idlelib.tooltip import Hovertip
-import sys
 import time
+import tkinter as tk
+
+from idlelib.tooltip import Hovertip
 from datetime import date
-sys.path.append('../common')
 from tkutils import buildRootWindow
 
 
@@ -31,5 +30,5 @@ class App():
         self.timeLabel.configure(text=time.strftime("%H:%M:%S"))
         self.root.after(1000, self.update_time)
 
-
-app = App()
+if __name__ == "__main__":
+    app = App()

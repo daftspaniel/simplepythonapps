@@ -11,8 +11,8 @@ Suggestions welcome!
 ## Apps
 
 1. Clock - a super simple clock.
+2. Scratchpad - a small text window that saves the text automatically.
 
 ## Coming soon
 
-1. Scratchpad - persistent store.
-2. Newsticker - show stories from RSS reader newsboat. 
+1. Newsticker - show stories from RSS reader newsboat. 
