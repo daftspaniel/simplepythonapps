@@ -1,17 +1,16 @@
 # Super simple Tkinter clock. v0.1
-# Public domain.
-# 2021 Feb 13 - daftspaniel - www.casterbridge.xyz
-
 import tkinter as tk
 from idlelib.tooltip import Hovertip
-
+import sys
 import time
 from datetime import date
+sys.path.append('../common')
+from tkutils import buildRootWindow
 
 
 class App():
     def __init__(self):
-        self.root = tk.Tk()
+        self.root = buildRootWindow()
 
         # Customise display of time here.
         self.timeLabel = tk.Label(text="", font=(
@@ -24,7 +23,6 @@ class App():
 
         # The Escape key closes the application.
         self.root.bind("<Escape>", lambda x: self.root.destroy())
-
         self.update_time()
         self.root.mainloop()
 
