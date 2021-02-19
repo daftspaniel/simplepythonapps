@@ -4,7 +4,7 @@ import tkinter as tk
 
 from idlelib.tooltip import Hovertip
 from datetime import date
-from tkutils import buildRootWindow
+from tk_utils import buildRootWindow
 
 
 class App():
