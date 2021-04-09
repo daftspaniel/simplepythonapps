@@ -17,7 +17,7 @@ class App():
         self.timeLabel.pack()
 
         # Put todays date in the tool tip.
-        dateTooltip = Hovertip(self.timeLabel, date.today())
+        Hovertip(self.timeLabel, date.today())
         self.root.geometry("+20+20")  # Position Window at top left of screen.
 
         # The Escape key closes the application.
@@ -29,6 +29,7 @@ class App():
         # Change to "%H:%M" if you don't want seconds.
         self.timeLabel.configure(text=time.strftime("%H:%M:%S"))
         self.root.after(1000, self.update_time)
+
 
 if __name__ == "__main__":
     app = App()

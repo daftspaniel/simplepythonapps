@@ -12,15 +12,17 @@ class App():
         self.root = buildRootWindow()
 
         # Set the font and colours of the text.
-        self.pad = tk.Text(self.root, bg="black", fg="orange", font=("Mono", 8),
+        self.pad = tk.Text(self.root, bg="black", fg="orange",
+                           font=("Mono", 8),
                            borderwidth=0)
         # Set the pad to show the saved text.
         self.pad.insert(tk.INSERT, self.load_saved_text())
         self.pad.pack()
 
         # Call a function when typing occurs on the text box.
-        self.pad.bind(
-            '<KeyRelease>', lambda *args: self.pad_text_changed(self.pad.get("1.0", "end-1c")))
+        def keyPressHandler(*args):
+            self.pad_text_changed(self.pad.get("1.0", "end-1c"))
+        self.pad.bind('<KeyRelease>', keyPressHandler)
 
         # The Escape key closes the application.
         self.root.bind("<Escape>", lambda x: self.root.destroy())
@@ -30,7 +32,8 @@ class App():
         self.root.mainloop()
 
     def load_saved_text(self):
-        # Find the user's home directory and folder where we will save the file.
+        # Find the user's home directory and folder
+        # where we will save the file.
         config_folder = Path.joinpath(Path.joinpath(
             Path.home(), '.config'), 'simplepythonapps')
         # Create config folder if it does not exist
@@ -51,6 +54,7 @@ class App():
     def pad_text_changed(self, text):
         with open(self.text_file_path, 'w') as f:
             f.write(text)
+
 
 if __name__ == "__main__":
     app = App()

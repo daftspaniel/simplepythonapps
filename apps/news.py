@@ -9,8 +9,9 @@ newsboat_folder = Path.joinpath(Path.home(), '.newsboat')
 
 connection = sqlite3.connect(Path.joinpath(newsboat_folder, "cache.db"))
 cursor = connection.cursor()
-rows = cursor.execute("SELECT title,content,url FROM rss_item ORDER BY random() LIMIT 1").fetchall()
-text = re.sub('<[^<]+?>', '', rows[0][1]).replace('\n','').strip()
+query = "SELECT title,content,url FROM rss_item ORDER BY random() LIMIT 1"
+rows = cursor.execute(query).fetchall()
+text = re.sub('<[^<]+?>', '', rows[0][1]).replace('\n', '').strip()
 
 print(rows[0][0][:78])
 print(text[:78])
