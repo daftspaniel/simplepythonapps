@@ -1,23 +1,25 @@
-# Super simple Tkinter clock. v0.1
+"""
+    Super simple Tkinter clock. v0.1
+"""
 import time
 import tkinter as tk
 
-from idlelib.tooltip import Hovertip
 from datetime import date
-from tk_utils import buildRootWindow
+from idlelib.tooltip import Hovertip
+from tk_utils import build_root_window
 
-
-class App():
+class App: # pylint: disable=too-few-public-methods
+    """ Application object for the clock."""
     def __init__(self):
-        self.root = buildRootWindow()
+        self.root = build_root_window()
 
         # Customise display of time here.
-        self.timeLabel = tk.Label(text="", font=(
+        self.time_label = tk.Label(text="", font=(
             "Mono", 18), bg="black", fg="orange")
-        self.timeLabel.pack()
+        self.time_label.pack()
 
         # Put todays date in the tool tip.
-        Hovertip(self.timeLabel, date.today())
+        Hovertip(self.time_label, date.today())
         self.root.geometry("+20+20")  # Position Window at top left of screen.
 
         # The Escape key closes the application.
@@ -26,8 +28,9 @@ class App():
         self.root.mainloop()
 
     def update_time(self):
+        """ Display the latest time. """
         # Change to "%H:%M" if you don't want seconds.
-        self.timeLabel.configure(text=time.strftime("%H:%M:%S"))
+        self.time_label.configure(text=time.strftime("%H:%M:%S"))
         self.root.after(1000, self.update_time)
 
 

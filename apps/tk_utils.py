@@ -1,9 +1,14 @@
+"""
+    Common tkinter functions.
+"""
 import tkinter as tk
 
-# Create a simple window with no icon or text shown in title bar.
 
+def build_root_window():
+    """
+        Create a simple window with no icon or text shown in title bar.
 
-def buildRootWindow():
+    """
     root = tk.Tk()
     icon = tk.PhotoImage(height=16, width=16)
     icon.blank()

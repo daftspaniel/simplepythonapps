@@ -12,7 +12,4 @@ Suggestions welcome!
 
 1. Clock - a super simple clock.
 2. Scratchpad - a small text window that saves the text automatically.
-
-## Coming soon
-
-1. Newsticker - show stories from RSS reader newsboat. 
+3. News - terminal app that shows a random story from the newsboat RSS reader database.
